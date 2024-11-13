@@ -41,7 +41,7 @@ export class EjsGridComponent implements OnInit {
   }
 
   getData() {
-    this.isLoaded = false;
+    this.isLoaded = false; // if this is added, sorting doesn't work
     setTimeout(() => {
       this.httpService.dummyJsonAllProducts().subscribe(
         (data) => {
@@ -126,10 +126,5 @@ export class EjsGridComponent implements OnInit {
   customiseCell(args: QueryCellInfoEventArgs) {
     if (args.cell.innerHTML.match('^https?://'))
       args.cell.innerHTML = `<a href="${args.cell.innerHTML}">${args.cell.innerHTML}</a>`;
-  }
-
-  test() {
-    this.grid.dataSource = this.data;
-    this.grid.refresh();
   }
 }
