@@ -1,0 +1,28 @@
+<div *ngIf="isLoaded">
+  <ejs-grid
+    class="table-ui"
+    #grid
+    (dataBound)="dataBound()"
+    (actionComplete)="actionComplete($event)"
+    (actionBegin)="actionBegin($event)"
+    (queryCellInfo)="customiseCell($event)"
+    [allowExcelExport]="true"
+    [allowFiltering]="false"
+    [allowGrouping]="true"
+    [allowPaging]="false"
+    [allowResizing]="true"
+    [allowSorting]="true"
+    [columns]="columns"
+    [dataSource]="data"
+    [filterSettings]="filterOptions"
+    [groupSettings]="groupOptions"
+    [pageSettings]="pageSettings"
+    [showColumnChooser]="true"
+    [toolbar]="toolbarOptions"
+    height="100%"
+  >
+  </ejs-grid>
+</div>
+<div *ngIf="!isLoaded">
+  <h1>Loading...</h1>
+</div>
